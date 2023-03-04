@@ -43,6 +43,7 @@ public class MainController {
 
         model.addAttribute("messages", messages);
         model.addAttribute("filter", filter);
+
         return "main";
     }
 
@@ -55,11 +56,13 @@ public class MainController {
     ) throws IOException {
         Message message = new Message(text, tag, user);
 
-        if (!file.isEmpty()) {
+        if (!file.isEmpty() && !file.getOriginalFilename().isEmpty()) {
             File uploadDir = new File(uploadPath);
+
             if(!uploadDir.exists()){
                 uploadDir.mkdir();
             }
+
             String uuidFile = UUID.randomUUID().toString();
             String resultFilename = uuidFile + "." + file.getOriginalFilename();
 
