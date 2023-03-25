@@ -40,15 +40,14 @@ public class UserService implements UserDetailsService {
         userRepo.save(user);
 
         if (!StringUtils.isEmpty(user.getEmail())) {
-            String messsage = String.format(
+            String message = String.format(
                     "Hello, %s! \n" +
                             "Welcome to WeSocial. Please, visit next link http://localhost:8080/activate/%s",
                     user.getUsername(),
                     user.getActivationCode()
             );
 
-            mailSender.send(user.getEmail(), "Activation code", messsage);
-
+            mailSender.send(user.getEmail(), "Activation code", message);
         }
 
         return true;
