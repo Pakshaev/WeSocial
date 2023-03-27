@@ -41,6 +41,7 @@ public class MailConfig {
 
         properties.setProperty("mail.transport.protocol", protocol);
         properties.setProperty("mail.debug", debug);
+        properties.put("mail.smtp.auth", "false");
 
         return mailSender;
     }
