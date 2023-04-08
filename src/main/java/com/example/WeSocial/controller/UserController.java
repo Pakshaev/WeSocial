@@ -10,8 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.jws.soap.SOAPBinding;
-import java.lang.reflect.Type;
+/*import javax.jws.soap.SOAPBinding;
+import java.lang.reflect.Type;*/
 import java.util.Map;
 
 @Controller

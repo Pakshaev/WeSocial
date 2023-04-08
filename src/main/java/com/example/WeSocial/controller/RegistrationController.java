@@ -25,7 +25,7 @@ public class RegistrationController {
     @Autowired
     private UserService userService;
 
-    @Value("${recaptcha.secret}")
+/*    @Value("${recaptcha.secret}")*/
     private String secret;
 
     @Autowired
@@ -39,17 +39,17 @@ public class RegistrationController {
     @PostMapping("/registration")
     public String addUser(
             @RequestParam("password2") String passwordConfirm,
-            @RequestParam("g-recaptcha-response") String captchaResponse,
+            /*@RequestParam("g-recaptcha-response") String captchaResponse,*/
             User user,
             BindingResult bindingResult,
             Model model
     ) {
-        String url = String.format(CAPTCHA_URL, secret, captchaResponse);
+/*        String url = String.format(CAPTCHA_URL, secret);
         CaptchaResponseDto response = restTemplate.postForObject(url, Collections.emptyList(), CaptchaResponseDto.class);
 
         if(!response.isSuccess()) {
             model.addAttribute("captchaError", "Fill captcha");
-        }
+        }*/
 
         boolean isConfirmEmpty = StringUtils.isEmpty(passwordConfirm);
         if(isConfirmEmpty) {
@@ -60,7 +60,7 @@ public class RegistrationController {
             model.addAttribute("passwordError", "Passwords are different!");
         }
 
-        if (isConfirmEmpty || bindingResult.hasErrors() || !response.isSuccess()) {
+        if (isConfirmEmpty || bindingResult.hasErrors()/* || *//*!response.isSuccess()*/) {
             Map<String, String> errors = ControllerUtils.getErrors(bindingResult);
 
             model.mergeAttributes(errors);
