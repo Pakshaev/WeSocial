@@ -7,7 +7,7 @@
             <a class="btn btn-info" href="/user/unsubscribe/${userChannel.id}">Unsubscribe</a>
         <#else>
             <a class="btn btn-info" href="/user/subscribe/${userChannel.id}">Subscribe</a>
-         <#/if>
+        </#if>
     </#if>
     <div class="container my-3">
         <div class="row">
@@ -35,7 +35,7 @@
     </div>
     <#if isCurrentUser>
         <#include "parts/messageEdit.ftl" />
-
-        <#include "parts/messageList.ftl" />
     </#if>
+
+    <#include "parts/messageList.ftl" />
 </@c.page>

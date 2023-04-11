@@ -1,4 +1,4 @@
-/*package com.example.WeSocial.config;
+package com.example.WeSocial.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -8,7 +8,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.Properties;
 
-*//*@Configuration*//*
+@Configuration
 public class MailConfig {
     @Value("${spring.mail.host}")
     private String host;
@@ -28,7 +28,7 @@ public class MailConfig {
     @Value("${mail.debug}")
     private String debug;
 
-    *//*@Bean*//*
+    @Bean
     public JavaMailSender getMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 
@@ -45,4 +45,4 @@ public class MailConfig {
 
         return mailSender;
     }
-}*/
+}
